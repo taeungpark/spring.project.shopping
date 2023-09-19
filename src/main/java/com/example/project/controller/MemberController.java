@@ -32,7 +32,7 @@ public class MemberController {
 
         memberService.addMember(email, password, firstName, lastName, address, phone);
 
-        return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @PostMapping("/login")
@@ -50,16 +50,17 @@ public class MemberController {
             httpSession.setAttribute("loginInfo", loginInfo);
 //            System.out.println("login");
 //            System.out.println(loginInfo);
+
+            return new ResponseEntity(loginInfo, HttpStatus.OK);
         } else {
             throw new RuntimeException("wrong password");
         }
-        return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/logout")
-    public ResponseEntity cart(HttpSession httpSession) {
+    public ResponseEntity logout(HttpSession httpSession) {
         httpSession.removeAttribute("loginInfo");
 //        System.out.println("logout");
-        return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
