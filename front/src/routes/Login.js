@@ -19,7 +19,6 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // API 엔드포인트와 요청 옵션 설정
     const apiUrl = 'http://localhost:8080/members/login';
     const requestOptions = {
       method: 'POST',
@@ -28,7 +27,6 @@ function Login() {
     };
 
     try {
-      // API 호출 및 응답 처리
       const response = await fetch(apiUrl, requestOptions);
       if (response.ok) {
         const data = await response.json();
