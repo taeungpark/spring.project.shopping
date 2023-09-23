@@ -15,6 +15,7 @@ function LoginWelcome() {
   return (
     <div>
       <h1>Welcome!</h1>
+      <h3>Welcome to becoming a member.</h3>
       {userData && (
         <div>
           <p>Hello!, {userData.firstName}, {userData.lastName}!</p>

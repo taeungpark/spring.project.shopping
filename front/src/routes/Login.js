@@ -31,7 +31,7 @@ function Login() {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('loginData', JSON.stringify(data));
-        navigate('/loginWelcome'); 
+        navigate('/'); 
       } else {
         console.error('login fail');
       }
