@@ -42,14 +42,12 @@ public class MemberController {
 
         Member user = memberService.getUser(email);
         if (password.equals(user.getPassword())){
-            LoginInfo loginInfo = new LoginInfo(user.getEmail(), user.getFirstName(), user.getLastName());
+            LoginInfo loginInfo = new LoginInfo(user.getMemberId(), user.getEmail(), user.getFirstName(), user.getLastName());
 
             List<String> roles = memberService.getRoles(user.getMemberId());
             loginInfo.setRoles(roles);
 
             httpSession.setAttribute("loginInfo", loginInfo);
-//            System.out.println("login");
-//            System.out.println(loginInfo);
 
             return new ResponseEntity(loginInfo, HttpStatus.OK);
         } else {
